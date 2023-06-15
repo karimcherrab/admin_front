@@ -5,11 +5,14 @@ import { toast } from "react-toastify";
 import AuthContext from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
+import { useCookies } from 'react-cookie';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {setAuthTokens} = useContext(AuthContext)
+  const [cookies, setCookie] = useCookies(['cookieName']);
+
   const history = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -23,8 +26,15 @@ const LoginPage = () => {
 
 
   const handleSubmit = async (e) => {
+   
+
     e.preventDefault()
+    setCookie('token', 'tokenValue', { path: '/' });
+
+    setAuthTokens(Cookies?.get('token'))
+        history("/");
     console.log("cherrab")
+    /*
     try {
       
       const response = await axios.post(`http://localhost:8010/v1/api/user/loginAdmin`, 
@@ -46,13 +56,12 @@ const LoginPage = () => {
       toast.error(error.response.data);
   
       console.error('Error updating category:', error.response.data);
-    }
+    }*/
   } 
   return (
     <div className="flex w-full items-center justify-center min-h-screen bg-gray-100">
       <div className="w-[90%] h-[90vh] flex flex-row justify-center items-center gap-10 px-6 py-32 bg-gradient-to-r from-blue-200 to-cyan-200 border border-gray-300 shadow-lg rounded-lg">
         <div className=' flex flex-col justify-center items-center h-full px-4 w-[30%] ' >
-        <h2 className="text-[62px] text-[#00B0FF] font-semibold text-center mb-6">Hekto Admin</h2>
         <form className=' mt-6 w-full' onSubmit={handleSubmit}>
           <div className="mb-4 w-full">
             <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">

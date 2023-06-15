@@ -3,24 +3,42 @@ import TopBar from '../Layout/TopBar'
 import {AiOutlineSearch} from 'react-icons/ai'
 import axios from 'axios';
 import { toast } from "react-toastify";
-import Modal from "./PopUp_confirmation/Modal";
 import PopUp_AddShop from './PopUp_AddShop';
 import {GiCancel} from "react-icons/gi"
 import Loader from '../Loader'
 const Shop = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [stores, setstores] = useState([]);
+  
+
+  const [stores, setstores] = useState([
+    {
+      shopId:"shopID1",
+      name:"Shop01",
+      email:"shop@gmail.com",
+      numberPhone:"+213755418515",
+      enabled:true,
+
+    },
+    {
+      shopId:"shopID2",
+      name:"Shop02",
+      email:"shop2@gmail.com",
+      numberPhone:"+213619548515",
+      enabled:false,
+
+    },
+  ]);
   const [showPopup, setShowPopup] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [shopId, setshopId] = useState("");
 
   const [ShowPopUpConfirmation, setShowPopUpConfirmation] = useState(false);
+  const itemsPerPage = 7;
 
   
   const [inputValue, setInputValue] = useState('');
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(Math.ceil(stores.length / itemsPerPage));
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 7;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -62,16 +80,7 @@ const handleOpenPopup = () => {
   setShowPopup(true);
 };
 
-const handleClosePopup = () => {
-  setShowPopup(false);
-  setInputValue('');
-};
-const handleValidate = () => {
-  // Perform validation logic or any other actions
- // handleCreateCategory();
- handleCreateShop();
-  console.log('Validating input:', inputValue);
-};
+
 
 
 useEffect(() => {

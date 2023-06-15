@@ -38,11 +38,7 @@ export const linksPremium = [
           icon: <RxPerson/>,
           link:'customers'
         },
-        {
-          name: 'Orders',
-          icon: <AiOutlineShoppingCart/>,
-          link:'orders'
-        },
+       
        
         
        

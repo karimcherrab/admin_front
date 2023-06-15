@@ -13,7 +13,24 @@ function Customers() {
   const urlGet = `${baseUrl}getAllUsers`;
   const bs=process.env.REACT_APP_QUERY_BASE_URL
   const urlGetLastMonth= `${bs}statistics/getMySubscription`
-  const [customers, setCustomers] = useState([]);
+  const [customers, setCustomers] = useState([
+    {
+      name:"Customer1",
+      birthdayDate:"1998-02-19",
+      email:"Customer1@gmail.com",
+      userGender:"MALE",
+      userId:"Customer1"
+
+    },
+    {
+      name:"Customer2",
+      birthdayDate:"1988-02-19",
+      email:"Customer2@gmail.com",
+      userGender:"MALE",
+      userId:"Customer2"
+
+    },
+  ]);
   const [lastMonth,setLastMonth]=useState(0)
   const columns = [
     {

@@ -10,18 +10,33 @@ const Category = () => {
 
   const [loading,setLoading]=useState(false)
 
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState([
+      {
+        categoryName:"Electronics",
+        categoryId:"categoryId1"
+      },
+      {
+        categoryName:"Books",
+        categoryId:"categoryId2"
+      },
+      {
+        categoryName:"Sporting Goods- internal link",
+        categoryId:"categoryId3"
+      },
+    ]);
+
+
     const [showPopup, setShowPopup] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const [popupTitle, setPopupTitle] = useState('');
     const [categorySelect, setcategorySelect] = useState('');
 
+    const itemsPerPage = 7;
 
   //Pagination
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(Math.ceil(categories.length / itemsPerPage));
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 7;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;

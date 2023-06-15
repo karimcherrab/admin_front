@@ -142,19 +142,11 @@ function App() {
               <Route exact path="/" element={<DashboardAdmin />} />
               <Route exact path="/dashboard" element={<DashboardAdmin />} />
 
-                {/* <Route exact path="/" element={<Dashboard />} />
-                <Route exact path="/dashboard" element={<Dashboard />} />
-                <Route exact path="/product" element={<ProductList />} />
-                <Route exact path="/product/add" element={<AddProduct />} />
-                <Route exact path="/customers" element={<Customers />} />
-                <Route exact path="/orders" element={<Orders />} />
-                <Route exact path="/customer complaint" element={<Complaints />} /> */}
-                
               </Route>
               
               <Route element={<PrivateRoute2 />} >
               <Route path="/login" element={<Login />} />
-              </Route>
+      </Route>
              
               
     </Routes> 

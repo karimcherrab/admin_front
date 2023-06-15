@@ -3,6 +3,7 @@ import {GiCancel} from "react-icons/gi"
 import Loader from '../Loader'
 import { BiImageAdd } from "react-icons/bi";
 import axios from "axios"
+import ca from "../../components/assets/ca.svg"
 
 function UpdateProductPopup(props) {
   const bs = process.env.REACT_APP_COMMAND_BASE_URL;
@@ -98,7 +99,7 @@ function UpdateProductPopup(props) {
 
         </div>
         <div className=' mt-4 justify-center items-center flex flex-row w-full' >
-        <img src={props.img} alt="" className=' flex-1 w-[250px] h-[250px]' />
+        <img src={ca} alt="" className=' flex-1 w-[250px] h-[250px]' />
        <div className='flex-1 text-[20px] text-black  flex flex-col gap-5 justify-start items-start' >
         <div className=' w-full flex flex-row gap-3 justify-between items-center' >
             <p>Name:</p>

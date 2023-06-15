@@ -86,17 +86,17 @@ export default function DashboardAdmin() {
    const urlGet="http://localhost:8091/adminStatistics/getMyAdminStatistics" 
    const [stats, setStats] = useState({
     ageModelStatistics: {
-        under18: 0,
-        between18_30: 0,
-        between30_40: 0,
-        between40_50: 0,
-        between50_60: 0
+        under18: 50,
+        between18_30: 100,
+        between30_40: 80,
+        between40_50: 60,
+        between50_60: 60
     },
-    totalMaleCount: 0,
-    totalFemaleCount: 0,
-    totalProductsCount: 0,
-    totalUsers: 0,
-    totalShops: 0
+    totalMaleCount: 200,
+    totalFemaleCount: 150,
+    totalProductsCount: 1,
+    totalUsers: 350,
+    totalShops: 2
 });
   let data = [
     {
@@ -238,7 +238,7 @@ export default function DashboardAdmin() {
             <div className="  text-[32px]  w-[50%] px-4 h-full bg-[#EEEEEE] justify-center gap-8 rounded-md py-3 items-center flex flex-row ">
               <IoPersonOutline className=" text-[42px] text-yellow-500" />
               <div className=" flex flex-col justify-center items-center">
-                <p className=" text-gray-500">Total Shops</p>
+                <p className=" text-gray-500">Total Products</p>
                 <p className=" text-gray-500">{stats.totalProductsCount}</p>
               </div>
             </div>

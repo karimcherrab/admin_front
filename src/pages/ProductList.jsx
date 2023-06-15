@@ -11,6 +11,7 @@ import { AiFillDelete } from "react-icons/ai";
 import {motion} from "framer-motion"
 import Select from "react-select"
 import searchsvg from "../components/assets/search.svg"
+import ca from "../components/assets/ca.svg"
 
 export const Prod = ({
   img,
@@ -52,7 +53,7 @@ export const Prod = ({
       <div className=" bg-green-900 bg-opacity-30 p-4">
       <motion.div  whileHover={{ scale: 1.2 }}
       transition={{ duration: 0.5 }}>
-        <img src={img} alt="" className="  object-contain w-[100px] h-[100px]" />
+        <img src={ca} alt="" className="  object-contain w-[100px] h-[100px]" />
         </motion.div>
       </div>
 
@@ -74,7 +75,20 @@ function ProductList() {
   const urlGetByCategory=`${bs}products/getProductByCategoryName/`
   const urlSearch=`${bs}products/getAllProductsWithNameLike`
   const [bool, setBool] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([
+   
+    {
+      productImageUrl:{ca},
+      productId:"prod1",
+      productName:"Product1",
+      productDesc:"Desc Product1",
+      productPrice:100.0,
+      productQuantity:10,
+    },
+    
+
+
+  ]);
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
   const [infoPopup,setInfoPopup]=useState({})
@@ -243,7 +257,7 @@ function ProductList() {
             products={products}
             setProducts={setProducts}
             setToggle={setToggle}
-            img={'data:image/svg+xml;base64,' + infoPopup.productImageUrl}
+            img={infoPopup.productImageUrl}
             id={infoPopup.productId}
             name={infoPopup.productName}
             desc={infoPopup.productDesc}
@@ -263,7 +277,7 @@ function ProductList() {
       products={products}
       setProducts={setProducts}
       setToggle={setToggle}
-      img={'data:image/svg+xml;base64,' + item.productImageUrl}
+      img={item.productImageUrl}
       id={item.productId}
       name={item.productName}
       text={item.productDesc}
@@ -279,7 +293,7 @@ function ProductList() {
     products={products}
     setProducts={setProducts}
     setToggle={setToggle}
-    img={'data:image/svg+xml;base64,' + item.productImageUrl}
+    img={item.productImageUrl}
     id={item.productId}
     name={item.productName}
     text={item.productDesc}
